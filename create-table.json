@@ -1,75 +1,58 @@
 {
     "AttributeDefinitions": [
-        {
-            "AttributeName": "",
-            "AttributeType": "S"
-        }
+      {
+        "AttributeName": "payment_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "date",
+        "AttributeType": "N"
+      },
+      {
+        "AttributeName": "amount",
+        "AttributeType": "N"
+      },
+      {
+        "AttributeName": "merchant_id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "status",
+        "AttributeType": "S"
+      }
     ],
-    "TableName": "",
     "KeySchema": [
-        {
-            "AttributeName": "",
-            "KeyType": "HASH"
-        }
-    ],
-    "LocalSecondaryIndexes": [
-        {
-            "IndexName": "",
-            "KeySchema": [
-                {
-                    "AttributeName": "",
-                    "KeyType": "HASH"
-                }
-            ],
-            "Projection": {
-                "ProjectionType": "ALL",
-                "NonKeyAttributes": [
-                    ""
-                ]
-            }
-        }
+      {
+        "AttributeName": "payment_id",
+        "KeyType": "HASH"
+      }
     ],
     "GlobalSecondaryIndexes": [
-        {
-            "IndexName": "",
-            "KeySchema": [
-                {
-                    "AttributeName": "",
-                    "KeyType": "HASH"
-                }
-            ],
-            "Projection": {
-                "ProjectionType": "ALL",
-                "NonKeyAttributes": [
-                    ""
-                ]
-            },
-            "ProvisionedThroughput": {
-                "ReadCapacityUnits": 0,
-                "WriteCapacityUnits": 0
-            }
+      {
+        "IndexName": "PaymentStatus",
+        "KeySchema": [
+          {
+            "AttributeName": "status",
+            "KeyType": "HASH"
+          },
+          {
+            "AttributeName": "date",
+            "KeyType": "RANGE"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5
         }
+      }
     ],
-    "BillingMode": "PROVISIONED",
     "ProvisionedThroughput": {
-        "ReadCapacityUnits": 0,
-        "WriteCapacityUnits": 0
+      "ReadCapacityUnits": 5,
+      "WriteCapacityUnits": 5
     },
-    "StreamSpecification": {
-        "StreamEnabled": true,
-        "StreamViewType": "NEW_IMAGE"
-    },
-    "SSESpecification": {
-        "Enabled": true,
-        "SSEType": "AES256",
-        "KMSMasterKeyId": ""
-    },
-    "Tags": [
-        {
-            "Key": "",
-            "Value": ""
-        }
-    ],
-    "TableClass": "STANDARD",
-    "DeletionProtectionEnabled": true
-}
+    "TableName": "Payments"
+  }
+  
