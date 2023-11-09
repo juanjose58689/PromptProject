@@ -32,11 +32,11 @@ Repositorio donde se almacena el trabajo final de la asignatura PROM del estudia
 
     # Edita create-table.json y ajusta las opciones de la tabla según tus necesidades
 
-    # Crea la tabla en DynamoDB local
-    aws dynamodb create-table --cli-input-json file://create-table.json --endpoint-url http://localhost:8000
-
     # Inicia DynamoDB local en Docker
     docker run -p 8000:8000 amazon/dynamodb-local
+
+    # Crea la tabla en DynamoDB local
+    aws dynamodb create-table --cli-input-json file://create-table.json --endpoint-url http://localhost:8000
     ```
 4. DynamoDB local debería estar en funcionamiento en tu computadora local en http://localhost:8000. Puedes acceder a la consola de administración de DynamoDB local en un navegador web visitando http://localhost:8000/shell.
 5. Ahora puedes desarrollar y probar tu aplicación utilizando DynamoDB local como si fuera una base de datos en AWS.

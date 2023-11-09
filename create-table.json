@@ -1,58 +1,33 @@
 {
     "AttributeDefinitions": [
-      {
-        "AttributeName": "payment_id",
-        "AttributeType": "S"
-      },
-      {
-        "AttributeName": "date",
-        "AttributeType": "N"
-      },
-      {
-        "AttributeName": "amount",
-        "AttributeType": "N"
-      },
-      {
-        "AttributeName": "merchant_id",
-        "AttributeType": "S"
-      },
-      {
-        "AttributeName": "status",
-        "AttributeType": "S"
-      }
-    ],
-    "KeySchema": [
-      {
-        "AttributeName": "payment_id",
-        "KeyType": "HASH"
-      }
-    ],
-    "GlobalSecondaryIndexes": [
-      {
-        "IndexName": "PaymentStatus",
-        "KeySchema": [
-          {
-            "AttributeName": "status",
-            "KeyType": "HASH"
+        {
+            "AttributeName": "payment_id",
+            "AttributeType": "S"
           },
           {
             "AttributeName": "date",
-            "KeyType": "RANGE"
+            "AttributeType": "N"
           }
-        ],
-        "Projection": {
-          "ProjectionType": "ALL"
-        },
-        "ProvisionedThroughput": {
-          "ReadCapacityUnits": 5,
-          "WriteCapacityUnits": 5
-        }
-      }
     ],
+    "TableName": "Payments",
+    "KeySchema": [
+        {
+            "AttributeName": "payment_id",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "date",
+            "KeyType": "RANGE"
+        }
+    ],
+    "BillingMode": "PROVISIONED",
     "ProvisionedThroughput": {
-      "ReadCapacityUnits": 5,
-      "WriteCapacityUnits": 5
+        "ReadCapacityUnits": 2,
+        "WriteCapacityUnits": 2
     },
-    "TableName": "Payments"
-  }
-  
+    "StreamSpecification": {
+        "StreamEnabled": true,
+        "StreamViewType": "NEW_IMAGE"
+    },
+    "TableClass": "STANDARD"
+}
