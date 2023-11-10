@@ -283,3 +283,8 @@ Agrega o actualiza la configuración de Python para incluir el formateador black
     Guarda el archivo de configuración.
 
 Con estos pasos, habrás instalado y habilitado el formateador black en Visual Studio Code para tus proyectos Python. Ahora, cuando guardes un archivo Python, black formateará automáticamente tu código según sus reglas de estilo. Recuerda que el formateo automático al guardar es opcional y puedes ajustar la configuración según tus preferencias.
+
+## Resultado
+A conitnuación se muestra una imagen de la interfaz anterior y de como se obtienen datos con lenguaje natural.
+
+![Interfaz de consultas](imagenes/imagen_1.png)
