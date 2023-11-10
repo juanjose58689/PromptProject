@@ -45,7 +45,7 @@ def convert_to_unix_timestamp(date_str):
 def generate_dynamodb_query(question: str):
     client = OpenAI(api_key=api_key)
     gpt3_answer = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4",
         messages=[
             {
                 "role": "system",
