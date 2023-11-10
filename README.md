@@ -1,4 +1,4 @@
-# PromptProject
+# Proyecto Final PROM -- Juan José Sánchez
 Repositorio donde se almacena el trabajo final de la asignatura PROM del estudiante Juan José Sánchez Correa.
 
 ## Prompt - 1: Desplegar ambiente local de DynamoDB para pruebas
@@ -267,5 +267,5 @@ Agrega o actualiza la configuración de Python para incluir el formateador black
     "editor.formatOnSave": true,
     ```
     Guarda el archivo de configuración.
-    
+
 Con estos pasos, habrás instalado y habilitado el formateador black en Visual Studio Code para tus proyectos Python. Ahora, cuando guardes un archivo Python, black formateará automáticamente tu código según sus reglas de estilo. Recuerda que el formateo automático al guardar es opcional y puedes ajustar la configuración según tus preferencias.
