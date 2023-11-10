@@ -7,6 +7,7 @@ from tkinter import ttk
 import boto3
 from dotenv import load_dotenv
 from openai import OpenAI
+from prettytable import PrettyTable
 
 load_dotenv()
 
@@ -118,9 +119,7 @@ def execute_query():
     )
 
     query_log_text.delete(1.0, tk.END)  # Borra los logs anteriores
-    query_result_text.delete(1.0, tk.END)  # Borra el resultado anterior
     query_log_text.insert(tk.END, "Realizando consulta...\n")
-
     query_log_text.insert(tk.END, f"Consultando la tabla: {table_name}\n")
     query_log_text.insert(tk.END, f"Consulta: {filter_expression}\n\n")
 
@@ -134,8 +133,23 @@ def execute_query():
         ExpressionAttributeValues=attribute_values,
         ExpressionAttributeNames=attribute_names,
     )
+    # Configuración de la tabla
+    columns = list(response["Items"][0].keys())
+    tree = ttk.Treeview(root, columns=columns, show="headings")
+
+    # Configuración de las columnas
+    for col in columns:
+        tree.heading(col, text=col)
+        tree.column(
+            col, width=150
+        )  # Ajusta el ancho de las columnas según sea necesario
+
+    # Llena la tabla con los datos
     for item in response["Items"]:
-        query_result_text.insert(tk.END, f"{item}\n")
+        tree.insert("", "end", values=list(item.values()))
+
+    # Muestra la tabla
+    tree.pack()
 
     query_log_text.insert(tk.END, "Consulta finalizada.\n")
 
@@ -156,23 +170,17 @@ table_combobox.pack()
 # Etiqueta y entrada para la consulta
 consulta_label = tk.Label(root, text="Consulta:")
 consulta_label.pack()
-consulta_entry = ttk.Entry(root)
+consulta_entry = ttk.Entry(root, width=100)
 consulta_entry.pack()
 
 # Botón para ejecutar la consulta
 query_button = tk.Button(root, text="Ejecutar Consulta", command=execute_query)
 query_button.pack()
 
-# Cuadro de texto para mostrar los resultados de la consulta
-query_result_label = tk.Label(root, text="Resultado de la consulta:")
-query_result_label.pack()
-query_result_text = tk.Text(root, height=10, width=200)
-query_result_text.pack()
-
 # Cuadro de texto para mostrar mensajes de log
 query_log_label = tk.Label(root, text="Log de consulta:")
 query_log_label.pack()
-query_log_text = tk.Text(root, height=10, width=200)
+query_log_text = tk.Text(root, height=10, width=40)
 query_log_text.pack()
 
 root.mainloop()
