@@ -1,7 +1,15 @@
 # Proyecto Final PROM -- Juan José Sánchez
 Repositorio donde se almacena el trabajo final de la asignatura PROM del estudiante Juan José Sánchez Correa.
 
+## Introducción
+El objetivo de este proyecto se enfoca en lograr obtener consultas a una base de datos no relacional, especifamente AWS DynamoDB, a traves de lenguaje natural, con el fin de simplificar la forma en la que las personas del área comercial y de atención al cliente realizan busquedas de datos especificos, sin la necesidad de conocer de forma especifica la parte técnica con la que se realiza la consulta.
+
+## Metodología
+Se realizó la división del proyecto en 4 fases, las cuales comprenden a su vez 4 prompts principales, en los cuales se muestra un paso a paso en el que se logra crear un ambiente de pruebas local, una interfaz gráfica para consultas, un procesamiento/traducción de lenguaje natural a consultas de DynamoDB y para finalizar una forma de ordenar y formatear el código.
+
 ## Prompt - 1: Desplegar ambiente local de DynamoDB para pruebas
+
+A continuación, se muestra un resumen del prompt principal, con el fin de obtener el chat completo se puede acceder al siguiente enlace: *https://chat.openai.com/share/ee9f75de-a739-4bba-9c33-4e99814f31f9*
 
 **Prompt**: *Necesito simular una base de datos de tipo DynamoDB en mi computador local, para esto me gustaría utilizar Docker con el fin de virtualizar el servicio y que lo pueda exportar de forma sencilla.*
 
@@ -45,6 +53,8 @@ Repositorio donde se almacena el trabajo final de la asignatura PROM del estudia
 ¡Eso es todo! Ahora tienes DynamoDB local ejecutándose en tu computadora macOS a través de Docker, lo que te permite desarrollar y probar aplicaciones que utilizan DynamoDB sin necesidad de una conexión a AWS. Ten en cuenta que DynamoDB local es solo para desarrollo y pruebas locales; no se recomienda su uso en producción.
 
 ## Prompt - 2: Creación de interfaz para consultas a Base de Datos DynamoDB
+
+A continuación, se muestra un resumen del prompt principal, con el fin de obtener el chat completo se puede acceder al siguiente enlace: *https://chat.openai.com/share/cac5d4fc-dd2c-447f-a144-7b5b668e4c60*
 
 **Prompt**: *Asume que eres un experto en python, en diseño de interfaces y en bases de datos NoSQL como DynamoDB.*
 
@@ -147,6 +157,8 @@ Este código debería permitirte seleccionar una tabla de DynamoDB desde una lis
 
 ## Prompt - 3: Lenguaje Natural a query de DynamoDB
 
+A continuación, se muestra un resumen del prompt principal, con el fin de obtener el chat completo se puede acceder al siguiente enlace: *https://chat.openai.com/share/7773075a-b6c9-4094-8b33-e36a5430ec9b*
+
 **Prompt**: *Existe algún modelo pre entrenado de procesamiento de lenguaje natural que convierta consultas en lenguaje natural a queries de DynamoDB? Dame su implementación en pyhton*
 
 **Respuesta**: Hasta donde llega mi conocimiento hasta enero de 2022, OpenAI GPT-3, el modelo en el que estoy basado, no proporciona una implementación específica para convertir consultas en lenguaje natural a consultas de DynamoDB. Sin embargo, puedo ofrecerte una guía general sobre cómo podrías abordar este problema utilizando GPT-3 y DynamoDB en Python.
@@ -203,6 +215,8 @@ print("Resultados de la consulta:", resultados)
 Ten en cuenta que este es solo un ejemplo básico y puede que necesites adaptarlo según tus necesidades específicas. Además, ten cuidado al manejar las consultas generadas por GPT-3, ya que pueden no ser seguras si se ingresan directamente en la base de datos sin una validación adecuada.
 
 ## Prompt - 4: Formateo de código para presentación
+
+A continuación, se muestra un resumen del prompt principal, con el fin de obtener el chat completo se puede acceder al siguiente enlace: *https://chat.openai.com/share/c90e3490-834b-4de5-95ae-902d87a6c48f*
 
 **Prompt**: *Como crear un archivo .env y almacenar un API_KEY para ser utilizado en python? Dame un ejemplo del archivo .env y de como acceder a este desde python*
 
